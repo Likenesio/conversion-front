@@ -20,25 +20,36 @@
   
   <script>
   import axios from 'axios';
+  import jwt_decode from "jwt-decode";
   
   export default {
   data() {
     return {
       conversion: {
-        fecha_actividad: '',
+        fecha_actividad: new Date().toLocaleDateString('en-US', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+  }).replace(/\//g, '-'),
         usuario: '',
         monto_origen: null,
-        fecha_conversion: '',
+        fecha_conversion: "",
         valor_moneda: null,
         monto_conversion: null
       }
     };
   },
   methods: {
+
     async convertCurrency() {
       try {
         const tipoIndicador = 'uf'; //indicador a utilizar
-  
+        let token = localStorage.getItem('token')
+        const decodedToken = jwt_decode(token); 
+        this.conversion.usuario = decodedToken.userId;
+        //console.log(rol)    
+        //console.log(id)  
+        //console.log(token)
         const fechaConversion = this.conversion.fecha_conversion;
       
         const formatoFecha = {
@@ -46,26 +57,35 @@
         month: '2-digit',
         year: 'numeric'
   };
-        const fechaFormateada = new Date(fechaConversion).toLocaleDateString('es-ES', formatoFecha).replace(/\//g, '-');
-  
-        console.log(fechaFormateada)
+        const fechaFormateada = new Date(fechaConversion).toLocaleDateString('en-US', formatoFecha).replace(/\//g, '-');
+        this.conversion.fecha_conversion = fechaFormateada;
+        
          const response = await axios.get(`https://mindicador.cl/api/${tipoIndicador}/${fechaFormateada}`);
+
          let valorMoneda = response.data.serie[0].valor;
-         console.log("El valor de la moneda es: ", valorMoneda)
+         this.conversion.valor_moneda = valorMoneda
+         console.log("El valor de la moneda es: ", this.conversion.valor_moneda )
   
          this.conversion.monto_conversion = Math.round(this.conversion.monto_origen * valorMoneda);
          
-         console.log("El monto es: $", this.conversion.monto_conversion)
+         alert("Conversion realizada correctamente");
+         this.saveConversion(this.conversion);
+         
+         //console.log("El monto es: $", this.conversion.monto_conversion)
   
        } catch (error) { 
           console.error('Error al obtener los datos de conversión:', error);
        }
      },
+     
      async saveConversion(conversion) {
-        
+        console.log("Conversion recibida: ",conversion)
         const conversionResponsive = await axios.post(`${import.meta.env.VITE_URL_BACKEND}/conversion`, conversion);   
      }
+
    }
+
   }
+
   </script>
   

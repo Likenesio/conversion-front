@@ -34,15 +34,19 @@ export default {
         const response = await axios.post(`${import.meta.env.VITE_URL_BACKEND}/usuario/login`, data);
         const token = response.data.token;
         localStorage.setItem('token', token);
+  
         const decodedToken = jwt_decode(token); 
-        const rol = decodedToken.rol;      
+        const rol = decodedToken.rol;  
+        const id = decodedToken.userId;
+        //console.log(rol)    
+        //console.log(id)  
         //console.log(decodedToken)
         //console.log('Inicio de sesión exitoso');
 
         if (rol === 'admin') {
         this.$router.push('/home');
       } else if (rol === 'user') {
-        this.$router.push('/home');
+        this.$router.push('/conversion');
       } else {
         console.error('Rol desconocido:', rol);
         alert("error")
