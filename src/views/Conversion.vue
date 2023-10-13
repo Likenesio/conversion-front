@@ -7,9 +7,9 @@
           <input type="number" step = "any" id="monto_origen" v-model="conversion.monto_origen" required>
         </div>
         <div class="form-group">
-          <label for="fecha_conversion">Fecha de Conversión:</label>
-          <input type="date" id="fecha_conversion" v-model="conversion.fecha_conversion" required>
-        </div>
+        <label for="fecha_conversion">Fecha de Conversión:</label>
+        <input type="date" id="fecha_conversion" v-model="conversion.fecha_conversion" required :max="maxDate">
+      </div>
         <button type="submit" class="submit-button">Convertir</button>
       </form>
       <div class="result">
@@ -38,6 +38,15 @@
         monto_conversion: null
       }
     };
+  },
+  computed: {
+    maxDate() {
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, '0');
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const yyyy = today.getFullYear();
+      return `${yyyy}-${mm}-${dd}`;
+    }
   },
   methods: {
 
