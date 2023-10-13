@@ -57,7 +57,7 @@
         month: '2-digit',
         year: 'numeric'
   };
-        const fechaFormateada = new Date(fechaConversion).toLocaleDateString('en-US', formatoFecha).replace(/\//g, '-');
+        const fechaFormateada = new Date(fechaConversion).toLocaleDateString('es-ES', formatoFecha).replace(/\//g, '-');
         this.conversion.fecha_conversion = fechaFormateada;
         
          const response = await axios.get(`https://mindicador.cl/api/${tipoIndicador}/${fechaFormateada}`);
