@@ -30,7 +30,8 @@ export default {
       };
 
       try {
-        const response = await axios.post('http://localhost:3000/api/usuario/login', data);
+        
+        const response = await axios.post(`${import.meta.env.VITE_URL_BACKEND}/usuario/login`, data);
         const token = response.data.token;
         localStorage.setItem('token', token);
         const decodedToken = jwt_decode(token); 
