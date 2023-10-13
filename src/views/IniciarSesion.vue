@@ -1,8 +1,12 @@
 <template>
+  <h2>Login</h2>
   <div>
     <form @submit="handleSubmit">
       <input type="text" v-model="correo" placeholder="Correo">
+      <br>
       <input type="password" v-model="contrasenia" placeholder="Contraseña">
+      <br>
+      <br>
       <button type="submit">Iniciar Sesión</button>
     </form>
   </div>
