@@ -53,12 +53,12 @@
 
         // Definir encabezados
         worksheet.columns = [
-          { header: "Fecha actividad", key: "fecha_actividad", width: 15 },
+          { header: "Fecha actividad", key: "fecha_actividad", width: 25 },
           { header: "Usuario", key: "usuario", width: 20 },
-          { header: "Monto Origen (UF)", key: "monto_origen", width: 15 },
-          { header: "Fecha conversión", key: "fecha_conversion", width: 15 },
+          { header: "Monto Origen (UF)", key: "monto_origen", width: 25 },
+          { header: "Fecha conversión", key: "fecha_conversion", width: 25 },
           { header: "Valor de la Moneda (CLP)", key: "valor_moneda", width: 20 },
-          { header: "Monto de la conversión", key: "monto_conversion", width: 15 },
+          { header: "Monto de la conversión", key: "monto_conversion", width: 25 },
         ];
 
         // Agregar datos

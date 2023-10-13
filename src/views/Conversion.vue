@@ -3,13 +3,15 @@
       <h2>Convertir Moneda</h2>
       <form @submit.prevent="convertCurrency" class="form">
         <div class="form-group">
-          <label for="monto_origen">Monto origen:</label>
+          <label for="monto_origen">Monto origen :  </label>
           <input type="number" step = "any" id="monto_origen" v-model="conversion.monto_origen" required>
         </div>
+        <br>
         <div class="form-group">
-        <label for="fecha_conversion">Fecha de Conversión:</label>
+        <label for="fecha_conversion">Fecha de Conversión :  </label>
         <input type="date" id="fecha_conversion" v-model="conversion.fecha_conversion" required :max="maxDate">
       </div>
+      <br>
         <button type="submit" class="submit-button">Convertir</button>
       </form>
       <div class="result">
@@ -73,7 +75,7 @@
 
          let valorMoneda = response.data.serie[0].valor;
          this.conversion.valor_moneda = valorMoneda
-         console.log("El valor de la moneda es: ", this.conversion.valor_moneda )
+         //console.log("El valor de la moneda es: ", this.conversion.valor_moneda )
   
          this.conversion.monto_conversion = Math.round(this.conversion.monto_origen * valorMoneda);
          
