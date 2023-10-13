@@ -1,6 +1,9 @@
 <template>
   <div>
     <h2>Historial de Conversiones</h2>
+    <div>
+  <button @click="exportToExcel">Exportar a Excel</button>
+</div>
     <table>
       <thead>
         <tr>
@@ -28,7 +31,7 @@
   
   <script>
   import axios from 'axios';
-  import jwt_decode from "jwt-decode";
+  import ExcelJS from 'exceljs';
   
   export default {
     data() {
@@ -43,12 +46,54 @@
       
     },
     methods: {
+      async exportToExcel() {
+      try {
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet("Historial de Conversiones");
+
+        // Definir encabezados
+        worksheet.columns = [
+          { header: "Fecha actividad", key: "fecha_actividad", width: 15 },
+          { header: "Usuario", key: "usuario", width: 20 },
+          { header: "Monto Origen (UF)", key: "monto_origen", width: 15 },
+          { header: "Fecha conversión", key: "fecha_conversion", width: 15 },
+          { header: "Valor de la Moneda (CLP)", key: "valor_moneda", width: 20 },
+          { header: "Monto de la conversión", key: "monto_conversion", width: 15 },
+        ];
+
+        // Agregar datos
+        this.conversiones.forEach(conversion => {
+          worksheet.addRow({
+            fecha_actividad: this.formatDate(conversion.fecha_actividad),
+            usuario: conversion.usuario[0].nombre_usuario,
+            monto_origen: conversion.monto_origen,
+            fecha_conversion: this.formatDate(conversion.fecha_conversion),
+            valor_moneda: conversion.valor_moneda,
+            monto_conversion: conversion.monto_conversion,
+          });
+        });
+
+        // Generar un Blob con el archivo Excel
+        const blob = await workbook.xlsx.writeBuffer();
+
+        // Descargar el archivo Excel
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'historial_conversiones.xlsx';
+        a.click();
+
+        window.URL.revokeObjectURL(url);
+      } catch (error) {
+        console.error("Error al exportar a Excel:", error);
+      }
+    },
       async getHistorialConversion() {
         try {
           const response = await axios.get(`${import.meta.env.VITE_URL_BACKEND}/conversiones`);
-          //console.log(response)
+         
           this.conversiones = response.data;
-          console.log(this.conversiones)
+          //console.log(this.conversiones)
         } catch (error) {
           console.error(error);
         }
