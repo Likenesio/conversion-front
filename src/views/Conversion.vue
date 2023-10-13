@@ -18,6 +18,9 @@
         <p>El monto es: ${{ conversion.monto_conversion }}</p>
       </div>
     </div>
+    <br>
+    <br>
+    <button @click="logout" class="logout-button">Salir</button>
   </template>
   
   <script>
@@ -92,11 +95,13 @@
      async saveConversion(conversion) {
         console.log("Conversion recibida: ",conversion)
         const conversionResponsive = await axios.post(`${import.meta.env.VITE_URL_BACKEND}/conversion`, conversion);   
-     }
-
-   }
-
+     },
+     async logout() {
+      localStorage.removeItem('token');
+      this.$router.push('/'); 
+    }
   }
+}
 
   </script>
   

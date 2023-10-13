@@ -10,7 +10,7 @@
     <router-link v-if="isAdmin" to="/historialconversion">Ir a Historial de Conversiones</router-link>
     <br>
     <br>
-    <button v-if="isAuthenticated" @click="logout">Cerrar Sesión</button>
+    <button v-if="isAuthenticated" @click="logout">Salir</button>
   </div>
 </template>
 
@@ -33,10 +33,8 @@ export default {
   },
   methods: {
     logout() {
-      // Eliminar el token del almacenamiento local
-      localStorage.removeItem("token");
-      // Redirigir al usuario a la página de inicio de sesión o a la página de inicio
-      this.$router.push("/"); // Cambia "/login" por la ruta que desees
+      localStorage.removeItem("token");   
+      this.$router.push("/");
     },
   },
 };

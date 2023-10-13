@@ -3,6 +3,9 @@
     <h2>Historial de Conversiones</h2>
     <div>
   <button @click="exportToExcel">Exportar a Excel</button>
+  <br>
+  <br>
+  <button @click="logout" class="logout-button">Salir</button>
 </div>
     <table>
       <thead>
@@ -102,9 +105,13 @@
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
     const formattedDate = new Date(date).toLocaleDateString('es-CL', options);
     return formattedDate;
-  }
+  },
+     async logout() {
+      localStorage.removeItem('token');
+      this.$router.push('/'); 
+    
     }
-
+  }
   };
   </script>
   
