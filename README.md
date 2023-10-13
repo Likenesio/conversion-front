@@ -1,5 +1,6 @@
-##Front-end conversor
-###Instalación
+## Front-end conversor
+
+### Instalación
 
 Para el funcionamiento de la aplicación, es necesario tener instalado los siguientes programas:
 - [Node.js](https://nodejs.org/es "Node.js")
