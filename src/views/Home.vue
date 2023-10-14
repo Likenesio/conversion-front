@@ -11,11 +11,14 @@
     <br>
     <br>
     <button v-if="isAuthenticated" @click="logout">Salir</button>
+    
+
   </div>
 </template>
 
 <script>
 import jwt_decode from "jwt-decode";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
   data() {

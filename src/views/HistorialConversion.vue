@@ -2,12 +2,13 @@
   <div>
     <h2>Historial de Conversiones</h2>
     <div>
-  <button @click="exportToExcel">Exportar a Excel</button>
-  <br>
-  <br>
-  <button @click="logout" class="logout-button">Salir</button>
-</div>
-    <table>
+      <i-mdi-account-box style="font-size: 2em; color: red"/>
+      <button @click="exportToExcel">Exportar a Excel</button>
+      <br>
+      <br>
+      <button @click="logout">Salir</button>
+    </div>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Fecha actividad</th>
@@ -31,6 +32,7 @@
     </table>
   </div>
 </template>
+
   
   <script>
   import axios from 'axios';
