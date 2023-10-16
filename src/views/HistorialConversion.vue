@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Historial de Conversiones</h2>
+    <h2 class="page-title">Historial de Conversiones</h2>
     <div class="d-flex justify-content-between align-items-center mb-1">
       <button @click="exportToExcel" class="btn btn-success">
      <icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-type-xls" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -168,5 +168,10 @@
 .table-container {
   overflow-x: auto;
   width: 100%;
+}
+.page-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
