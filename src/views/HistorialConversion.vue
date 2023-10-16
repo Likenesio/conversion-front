@@ -190,7 +190,7 @@
     overflow-x: auto;
     width: 100%;
   }
-  @media (max-width: 200px) {
+  @media (max-width: 1000px) {
   .page-title {
     font-size: 18px; /* Adjust the font size for the title on smaller screens */
   }
