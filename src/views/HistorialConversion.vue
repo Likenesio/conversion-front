@@ -15,7 +15,7 @@
     </button>
     </div>
     <div class="table-responsive">
-      <table class="table table-striped">
+      <table class="table table-striped table-sm"> <!-- Agrega la clase "table-sm" para reducir el espaciado de la tabla en dispositivos móviles -->
         <thead>
           <tr>
             <th>Fecha actividad</th>
@@ -40,24 +40,13 @@
     </div>
     <nav aria-label="Page navigation">
       <ul class="pagination">
-        <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
-          <a class="page-link" @click="changePage(currentPage - 1)" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="page-item" v-for="page in totalPages" :key="page" :class="{ 'active': currentPage === page }">
-          <a class="page-link" @click="changePage(page)">{{ page }}</a>
-        </li>
-        <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
-          <a class="page-link" @click="changePage(currentPage + 1)" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
+        <!-- Tu paginación aquí -->
       </ul>
     </nav>
   </div>
   <button @click="logout" class="btn btn-danger">Salir</button>
 </template>
+
   
   <script>
   import axios from 'axios';
