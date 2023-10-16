@@ -362,6 +362,35 @@ right: 20px;
 margin-right: 10px;
 }
 }
+
+@media screen and (max-width: 320px) {
+  .flex-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .page-title {
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .table-container {
+    margin-top: 40px;
+    margin-left: 0px;
+    margin-right: 20px;
+  }
+
+  .btn-danger {
+    position: fixed;
+    bottom: 1px;
+    right: 20px;
+  }
+
+  .boton {
+    margin-right: 10px;
+  }
+}
 }
 
 
