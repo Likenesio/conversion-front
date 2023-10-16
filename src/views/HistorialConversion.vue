@@ -14,7 +14,7 @@
     </svg></icon>
     </button>
     </div>
-    <div class="table-responsive">
+    <div class="table-responsive movil" >
       <table class="table table-striped table-sm"> <!-- Agrega la clase "table-sm" para reducir el espaciado de la tabla en dispositivos móviles -->
         <thead>
           <tr>
@@ -152,3 +152,10 @@
   
   </script>
   
+<style>
+
+.movil{
+  overflow-x: auto;
+}
+
+</style>
