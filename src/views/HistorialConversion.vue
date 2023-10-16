@@ -1,4 +1,5 @@
 <template>
+  <body>
   <div class="flex-container">
     <h2 class="page-title">Historial de Conversiones</h2>
     <div class="d-flex justify-content-between align-items-center">
@@ -57,8 +58,9 @@
     </li>
   </ul>
 </nav>
+<button @click="logout" class="btn btn-danger">Salir</button>
   </div>
-  <button @click="logout" class="btn btn-danger">Salir</button>
+</body>
 </template>
 
   
@@ -167,6 +169,16 @@
   </script>
   
   <style scoped>
+
+
+body{
+margin-right: 0;
+margin-left: 0;
+min-width: 0;
+height:auto;
+flex: -100px;
+}
+
   .page-title {
     font-size: 24px; 
     margin: 20px 0; 
@@ -210,23 +222,13 @@
     overflow-x: auto;
     width: 100%;
   }
-  @media (max-width: 768px) {
-  .flex-container {
+  @media screen and (min-width: 321px) {
 
-  display: flex;
-  flex-direction: column;
-  width: 90vw; /* Fija la altura del contenedor al 100% de la altura de la ventana */
-}
+    body{
+    width: 0vw;
+    height:auto;
+    flex: content;
   }
-template, body{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
-  
 }
-
-  </style>
+</style>
