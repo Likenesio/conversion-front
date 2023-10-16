@@ -18,7 +18,7 @@ const routes = [
     component: Conversion,
   },
   {
-    path: '(historialconversion',
+    path: '/historialconversion',
     component: Historial,
   },  
 
