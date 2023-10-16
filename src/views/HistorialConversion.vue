@@ -1,5 +1,4 @@
 <template>
-  <body>
   <div class="flex-container">
     <h2 class="page-title">Historial de Conversiones</h2>
     <div class="d-flex justify-content-between align-items-center">
@@ -13,9 +12,18 @@
      <path d="M17 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
      <path d="M11 15v6h3" />
     </svg></icon>
-    </button>
-    </div>
-    <div class="table-container" >
+  </button>
+  <div class="d-flex flex-row-reverse">
+  <router-link to="/home"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-move" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2" />
+  <path d="M19 12h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h5.5" />
+  <path d="M16 19h6" />
+  <path d="M19 16l3 3l-3 3" />
+</svg></router-link>
+  </div>
+</div>
+<div class="table-container" >
       <table class="table table-striped"> 
         <thead>
           <tr>
@@ -58,9 +66,8 @@
     </li>
   </ul>
 </nav>
-<button @click="logout" class="btn btn-danger">Salir</button>
   </div>
-</body>
+  <button @click="logout" class="btn btn-danger">Salir</button>
 </template>
 
   
@@ -169,16 +176,6 @@
   </script>
   
   <style scoped>
-
-
-body{
-margin-right: 0;
-margin-left: 0;
-min-width: 0;
-height:auto;
-flex: -100px;
-}
-
   .page-title {
     font-size: 24px; 
     margin: 20px 0; 
@@ -222,13 +219,22 @@ flex: -100px;
     overflow-x: auto;
     width: 100%;
   }
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
+  .flex-container {
+    max-width: 960px; /* Ancho máximo en pantallas grandes */
+    margin: 0 auto;   /* Centrar el contenido en la pantalla */
+  }
+}
 
-    body{
-    width: 0vw;
-    height:auto;
-    flex: content;
+/* Estilos para pantallas pequeñas (móviles) */
+@media screen and (max-width: 767px) {
+  .flex-container {
+    padding: 10px; /* Agregar espacio adicional en los bordes */
+  }
+  .table-container {
+    overflow-x: auto; /* Hacer que la tabla sea desplazable horizontalmente en pantallas pequeñas */
   }
 }
 }
-</style>
+
+  </style>
