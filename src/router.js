@@ -6,19 +6,19 @@ import Home from './views/Home.vue';
 
 const routes = [
   {
-    path: 'NETLIFY_URL_FRONTEND /',
+    path: '/',
     component: Login,
   },
   {
-    path: 'NETLIFY_URL_FRONTEND/home',
+    path: '/home',
     component: Home,
   },
   {
-    path: 'NETLIFY_URL_FRONTEND/conversion',
+    path: '/conversion',
     component: Conversion,
   },
   {
-    path: 'NETLIFY_URL_FRONTEND/historialconversion',
+    path: '/historialconversion',
     component: Historial,
   },  
 
