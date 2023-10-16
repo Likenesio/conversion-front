@@ -13,7 +13,7 @@
      <path d="M11 15v6h3" />
     </svg></icon>
   </button>
-  <div class="d-flex flex-row-reverse">
+  <div class="d-flex flex-row-reverse boton">
   <router-link to="/home"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-move" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2" />
@@ -180,8 +180,6 @@
     font-size: 24px; 
     margin: 20px 0; 
   }
-  
-  /* Your existing CSS */
   .table-responsive {
     max-width: 100%;
     overflow-x: auto;
@@ -195,46 +193,176 @@
     padding: 5px 10px;
   }
   .table-container {
-    overflow-x: auto;
-    width: 100%;
-  }
-  @media (max-width: 1000px) {
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1000px) {
   .page-title {
-    font-size: 18px; /* Adjust the font size for the title on smaller screens */
+    font-size: 18px; 
   }
 
   .table {
-    font-size: 12px; /* Adjust the font size for the table on smaller screens */
+    font-size: 12px; 
   }
 
   .table th,
   .table td {
-    padding: 5px 5px; /* Adjust the spacing for table cells on smaller screens */
+    padding: 5px 5px;
   }
   .pagination {
-    font-size: 14px; /* Adjust the font size for pagination links on smaller screens */
-    margin-top: 10px; /* Add margin to separate pagination from the content */
+    font-size: 14px; 
+    margin-top: 10px; 
   }
   .table-container {
     overflow-x: auto;
-    width: 100%;
   }
-  @media screen and (min-width: 768px) {
+
+
+@media(max-width: 768px) {
   .flex-container {
-    max-width: 960px; /* Ancho máximo en pantallas grandes */
-    margin: 0 auto;   /* Centrar el contenido en la pantalla */
+    position: absolute;
+    top: 0;
+    left: 0;
   }
+
+  .page-title {
+     margin-top: 20px; 
+     margin-left: 0px;
+   }
+
+   .table-container {
+     margin-top: 40px; 
+     margin-left:0px; 
+     margin-right: 20px;
+   }
+
+   .btn-danger {
+      position: fixed;
+      bottom: 1px;
+      right: 20px;
+   }
+   .boton{
+
+    margin-right: 10px;
+
+   }
 }
 
-/* Estilos para pantallas pequeñas (móviles) */
-@media screen and (max-width: 767px) {
-  .flex-container {
-    padding: 10px; /* Agregar espacio adicional en los bordes */
-  }
-  .table-container {
-    overflow-x: auto; /* Hacer que la tabla sea desplazable horizontalmente en pantallas pequeñas */
-  }
+@media (max-width: 720px) {
+.flex-container {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.page-title {
+margin-top: 20px;
+margin-left: 0px;
+}
+
+.table-container {
+margin-top: 40px;
+margin-left: 0px;
+margin-right: 20px;
+}
+
+.btn-danger {
+position: fixed;
+bottom: 1px;
+right: 20px;
+}
+
+.boton {
+margin-right: 10px;
 }
 }
+@media (max-width: 425px) {
+.flex-container {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.page-title {
+margin-top: 20px;
+margin-left: 0px;
+}
+
+.table-container {
+margin-top: 40px;
+margin-left: 0px;
+margin-right: 20px;
+}
+
+.btn-danger {
+position: fixed;
+bottom: 1px;
+right: 20px;
+}
+
+.boton {
+margin-right: 10px;
+}
+}
+@media (max-width: 375px) {
+.flex-container {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.page-title {
+margin-top: 20px;
+margin-left: 0px;
+}
+
+.table-container {
+margin-top: 40px;
+margin-left: 0px;
+margin-right: 20px;
+}
+
+.btn-danger {
+position: fixed;
+bottom: 1px;
+right: 20px;
+}
+
+.boton {
+margin-right: 10px;
+}
+}
+@media (max-width: 425px) {
+.flex-container {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.page-title {
+margin-top: 20px;
+margin-left: 0px;
+}
+
+.table-container {
+margin-top: 40px;
+margin-left: 0px;
+margin-right: 20px;
+}
+
+.btn-danger {
+position: fixed;
+bottom: 1px;
+right: 20px;
+}
+
+.boton {
+margin-right: 10px;
+}
+}
+}
+
 
   </style>
