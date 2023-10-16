@@ -2,10 +2,10 @@
   <div class="container">
     <h2>Home</h2>
     <div class="mt-4">
-      <router-link to="/conversion" class="btn btn-primary">Ir a Conversión</router-link>
+      <router-link to="conversion" class="btn btn-primary">Ir a Conversión</router-link>
     </div>
     <div v-if="isAdmin" class="mt-4">
-      <router-link to="/historialconversion" class="btn btn-secondary">Ir a Historial de Conversiones</router-link>
+      <router-link to="historialconversion" class="btn btn-secondary">Ir a Historial de Conversiones</router-link>
     </div>
     <br>   
     <br>

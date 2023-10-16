@@ -6,19 +6,19 @@ import Home from './views/Home.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '',
     component: Login,
   },
   {
-    path: '/home',
+    path: 'home',
     component: Home,
   },
   {
-    path: '/conversion',
+    path: 'conversion',
     component: Conversion,
   },
   {
-    path: '/historialconversion',
+    path: 'historialconversion',
     component: Historial,
   },  
 

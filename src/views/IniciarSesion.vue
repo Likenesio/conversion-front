@@ -60,7 +60,7 @@ export default {
 
       if (rol === 'admin' || rol === 'user') {
  
-        this.$router.push('/home');
+        this.$router.push('home');
       } else {
         console.error('Rol desconocido:', rol);
         alert("Error: Rol desconocido");
