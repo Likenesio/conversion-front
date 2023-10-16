@@ -14,8 +14,8 @@
     </svg></icon>
     </button>
     </div>
-    <div class="table-responsive movil" >
-      <table class="table table-striped table-sm"> <!-- Agrega la clase "table-sm" para reducir el espaciado de la tabla en dispositivos móviles -->
+    <div class="table-responsive" >
+      <table class="table table-striped"> 
         <thead>
           <tr>
             <th>Fecha actividad</th>
@@ -154,8 +154,16 @@
   
 <style>
 
-.movil{
+.table-responsive {
+  max-width: 100%;
   overflow-x: auto;
+}
+.table {
+  font-size: 14px; /* Ajusta el tamaño de fuente según tus necesidades */
+}
+
+.table th, .table td {
+  padding: 5px 10px; /* Ajusta el espaciado según tus necesidades */
 }
 
 </style>
