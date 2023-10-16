@@ -1,24 +1,23 @@
 <template>
-  <div>
+  <div class="container">
     <h2>Home</h2>
-
-    
-    <router-link to="/conversion">Ir a Conversión</router-link>
-    
+    <div class="mt-4">
+      <router-link to="/conversion" class="btn btn-primary">Ir a Conversión</router-link>
+    </div>
+    <div v-if="isAdmin" class="mt-4">
+      <router-link to="/historialconversion" class="btn btn-secondary">Ir a Historial de Conversiones</router-link>
+    </div>
+    <br>   
     <br>
-    
-    <router-link v-if="isAdmin" to="/historialconversion">Ir a Historial de Conversiones</router-link>
-    <br>
-    <br>
-    <button v-if="isAuthenticated" @click="logout">Salir</button>
-    
-
+    <button v-if="isAuthenticated" @click="logout" class="btn btn-danger">Salir</button>
   </div>
 </template>
+
 
 <script>
 import jwt_decode from "jwt-decode";
 import 'bootstrap/dist/css/bootstrap.css';
+
 
 export default {
   data() {
@@ -42,3 +41,23 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger{
+  width:100%;
+}
+  
+@media (max-width:576px){
+ .container{
+   padding-left :10px;
+   padding-right :10px; 
+ } 
+  
+}</style>
