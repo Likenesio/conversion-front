@@ -168,7 +168,7 @@
       localStorage.removeItem('token');
       this.$router.push('/'); 
     
-    }
+    },
   }
   };
 
@@ -363,7 +363,7 @@ margin-right: 10px;
 }
 }
 
-@media screen and (max-width: 320px) {
+@media (max-width: 320px) {
   .flex-container {
     position: absolute;
     top: 0;
