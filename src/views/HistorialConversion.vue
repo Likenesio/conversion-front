@@ -1,9 +1,8 @@
 <template>
   <div class="mb-2">
     <h2>Historial de Conversiones</h2>
-    <div>
-     <div class="d-flex justify-content-between align-items-center mb-1">
-     <button @click="exportToExcel" class="btn btn-success">
+    <div class="d-flex justify-content-between align-items-center mb-1">
+      <button @click="exportToExcel" class="btn btn-success">
      <icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-type-xls" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
      <path d="M14 3v4a1 1 0 0 0 1 1h4" />
@@ -14,7 +13,6 @@
      <path d="M11 15v6h3" />
     </svg></icon>
     </button>
-    </div>
     </div>
     <div class="table-responsive">
       <table class="table table-striped">
@@ -34,8 +32,8 @@
             <td>{{ conversion.usuario[0].nombre_usuario }}</td>
             <td>${{ conversion.monto_origen }} UF</td>
             <td>{{ formatDate(conversion.fecha_conversion) }}</td>
-            <td>{{ conversion.valor_moneda}} CLP</td>
-            <td>{{ conversion.monto_conversion.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' }) +' '+ 'CLP' }}</td>
+            <td>{{ conversion.valor_moneda }} CLP</td>
+            <td>{{ conversion.monto_conversion.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' }) + ' CLP' }}</td>
           </tr>
         </tbody>
       </table>
@@ -60,7 +58,6 @@
   </div>
   <button @click="logout" class="btn btn-danger">Salir</button>
 </template>
-
   
   <script>
   import axios from 'axios';

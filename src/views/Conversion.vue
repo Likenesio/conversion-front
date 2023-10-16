@@ -17,7 +17,7 @@
       <button type="submit" class="submit-button">Convertir</button>
     </form>
     <div class="result">
-      <p>El monto es: {{ conversion.monto_conversion }}</p>
+      <p>El monto es: ${{ conversion.monto_conversion}}</p>
     </div>
     <br>
     <br>
