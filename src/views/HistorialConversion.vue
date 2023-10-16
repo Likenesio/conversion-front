@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="flex-container">
     <h2 class="page-title">Historial de Conversiones</h2>
-    <div class="d-flex justify-content-between align-items-center mb-1">
+    <div class="d-flex justify-content-between align-items-center">
       <button @click="exportToExcel" class="btn btn-success">
      <icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-type-xls" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -167,7 +167,6 @@
   </script>
   
   <style scoped>
-
   .page-title {
     font-size: 24px; 
     margin: 20px 0; 
@@ -207,5 +206,27 @@
     font-size: 14px; /* Adjust the font size for pagination links on smaller screens */
     margin-top: 10px; /* Add margin to separate pagination from the content */
   }
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+  .flex-container {
+
+  display: flex;
+  flex-direction: column;
+  width: 90vw; /* Fija la altura del contenedor al 100% de la altura de la ventana */
 }
+  }
+template, body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+  
+}
+
   </style>
