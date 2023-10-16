@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-2">
+  <div>
     <h2>Historial de Conversiones</h2>
     <div class="d-flex justify-content-between align-items-center mb-1">
       <button @click="exportToExcel" class="btn btn-success">
@@ -14,7 +14,7 @@
     </svg></icon>
     </button>
     </div>
-    <div class="table-responsive" >
+    <div class="table-container" >
       <table class="table table-striped"> 
         <thead>
           <tr>
@@ -165,5 +165,8 @@
 .table th, .table td {
   padding: 5px 10px; /* Ajusta el espaciado según tus necesidades */
 }
-
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
 </style>
