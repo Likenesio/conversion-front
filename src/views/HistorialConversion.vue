@@ -39,10 +39,24 @@
       </table>
     </div>
     <nav aria-label="Page navigation">
-      <ul class="pagination">
-        <!-- Tu paginación aquí -->
-      </ul>
-    </nav>
+  <ul class="pagination">
+    <li :class="{ 'page-item': true, 'disabled': currentPage === 1 }">
+      <button @click="changePage(currentPage - 1)" class="page-link" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+
+    <li v-for="page in totalPages" :key="page" :class="{ 'page-item': true, 'active': page === currentPage }">
+      <button @click="changePage(page)" class="page-link">{{ page }}</button>
+    </li>
+
+    <li :class="{ 'page-item': true, 'disabled': currentPage === totalPages }">
+      <button @click="changePage(currentPage + 1)" class="page-link" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>
   </div>
   <button @click="logout" class="btn btn-danger">Salir</button>
 </template>
@@ -152,26 +166,46 @@
   
   </script>
   
-<style>
+  <style scoped>
 
-.table-responsive {
-  max-width: 100%;
-  overflow-x: auto;
-}
-.table {
-  font-size: 14px; /* Ajusta el tamaño de fuente según tus necesidades */
-}
+  .page-title {
+    font-size: 24px; 
+    margin: 20px 0; 
+  }
+  
+  /* Your existing CSS */
+  .table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .table {
+    font-size: 14px; 
+  }
+  
+  .table th,
+  .table td {
+    padding: 5px 10px;
+  }
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+  .page-title {
+    font-size: 18px; /* Adjust the font size for the title on smaller screens */
+  }
 
-.table th, .table td {
-  padding: 5px 10px; /* Ajusta el espaciado según tus necesidades */
+  .table {
+    font-size: 12px; /* Adjust the font size for the table on smaller screens */
+  }
+
+  .table th,
+  .table td {
+    padding: 5px 5px; /* Adjust the spacing for table cells on smaller screens */
+  }
+  .pagination {
+    font-size: 14px; /* Adjust the font size for pagination links on smaller screens */
+    margin-top: 10px; /* Add margin to separate pagination from the content */
+  }
 }
-.table-container {
-  overflow-x: auto;
-  width: 100%;
-}
-.page-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-</style>
+  </style>
