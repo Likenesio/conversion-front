@@ -1,20 +1,30 @@
 <template>
-  <h2>Login</h2>
-  <div>
-    <form @submit="handleSubmit">
-      <input type="text" v-model="correo" placeholder="Correo">
-      <br>
-      <input class="input_pass" type="password" v-model="contrasenia" placeholder="Contraseña">
-      <br>
-      <br>
-      <button type="submit">Iniciar Sesión</button>
-    </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <h2 class="mt-5">Login</h2>
+        <div class="mt-3">
+          <form @submit="handleSubmit">
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo</label>
+              <input type="text" class="form-control" id="correo" v-model="correo" placeholder="Correo">
+            </div>
+            <div class="mb-3">
+              <label for="contrasenia" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="contrasenia" v-model="contrasenia" placeholder="Contraseña">
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
   data() {
